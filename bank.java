@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+// BROCODE Practice:
+//
 
 public class bank {
 
@@ -21,7 +23,9 @@ public class bank {
 	// }
 
 
-	// CREATING 
+	// CREATING class methods for bank class:
+
+	
 	static void showBalance(double balance) {
 		System.out.printf("$%.2f\n\n", balance);
 	}
@@ -40,6 +44,33 @@ public class bank {
 		}
 
 	}
+
+
+	static double withdraw(double balance) {
+		double newBal = 0;
+		
+		double amount;
+		double withdrawAm;
+
+		System.out.print("Enter amount to withdraw: ");
+
+		amount = scanner.nextDouble();
+
+		if (amount > balance) {
+			System.out.println("Insufficient Funds");
+			return 0;
+		}
+		else if(amount < 0) {
+			System.out.println("Amount can't be negative.");
+			return 0;
+		}
+		else {
+			return amount;
+		}
+
+	}
+
+
 
 	// static method to reuse Scanner() to accept user input:
 	static Scanner scanner = new Scanner(System.in);
@@ -79,7 +110,8 @@ public class bank {
 				case 1 -> showBalance(balance);
 				// case 2 -> System.out.println("Deposit\n\n");
 				case 2 -> balance = balance + deposit();
-				case 3 -> System.out.println("Withdraw\n\n");
+				// case 3 -> System.out.println("Withdraw\n\n");
+				case 3 -> balance = balance - withdraw(balance);
 				case 4 -> isRunning = false;
 				default -> System.out.println("Not a choice\n\n");
 			}  
