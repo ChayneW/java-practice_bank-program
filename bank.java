@@ -50,7 +50,6 @@ public class bank {
 		double newBal = 0;
 		
 		double amount;
-		double withdrawAm;
 
 		System.out.print("Enter amount to withdraw: ");
 
